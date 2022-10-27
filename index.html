@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Tentang Kami</title>
+        <script src="js/jquery.js"></script>
+        <script src="js/popper.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/aos.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/aos.css">
+        <link rel="stylesheet" href="css/modal-image.css">
+        
+</head>
+
+<body>
+
+  <script>
+    AOS.init({
+      easing: 'ease-in-out-sine',
+      duration: '1200'
+    });
+  </script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand"><b>MY PORTOFOLIO</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#profil"><b>Profil</b></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#sekolah"><b>Asal Sekolah</b></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#sertifikat"><b>Sertifikat</b></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#project"><b>Project</b></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="header" id="profil" data-aos="fade-left"> 
+<div class="container" align="center">
+    <img src="image/profil.png" class="image" alt="Profil" width="150px" height="150px">
+    <h3 class="profil">Hai, Nama Saya Nurfaizal</h3>
+    <p>Lahir Di Maros, Sulawesi Selatan<br>
+    Saat Ini Berkuliah Di STMIK AKBA Makassar<br>
+    Front End Develover
+    </p>
+  </div>
+</div>
+
+<div class="container-fluid">
+<div class="card shadow" style="margin-top: 10px;" data-aos="fade-right">
+    <h4 class="card-header">My Skill</h4>
+    <div class="card-body">
+        <p>HTML </p>
+        <div class="progress" >
+            <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">90%</div>
+          </div>
+           <br> 
+
+        <p>CSS</p>
+          <div class="progress">
+            <div class="progress-bar bg-info" role="progressbar" style="width: 75%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">75%</div>
+          </div>
+          <br>
+
+          <p>Javascript</p>
+          <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" style="width: 60%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">60%</div>
+          </div>
+          <br>
+
+          <p>PHP</p>
+          <div class="progress">
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">50%</div>
+          </div>
+
+    </div>
+</div>
+</div> <!--Container Fluid-->
+<br>
+
+<div class="container-fluid">
+<div class="card shadow" data-aos="zoom-in">
+<h4 class="card-header" id="sekolah">Asal Sekolah</h4>
+<div class="container">
+<div class="grid-container">
+
+<div class="card" style="width: 160px;">
+  <img src="image/profil.png" width="159" height="170" alt="">
+  <div class="card-footer"><b>SD Negeri 123 Macowa</b></div>
+  </div>
+
+<div class="card" style="width: 160px;">
+  <img src="image/profil.png" width="159" height="170" alt="">
+  <div class="card-footer"><b>SMP Negeri 11 Maros</b></div>
+  </div>
+
+<div class="card" style="width: 160px;">
+  <img src="image/profil.png" width="159" height="170" alt="">
+  <div class="card-footer"><b>SMK Negeri 1 Maros</b></div>
+  </div>
+
+<div class="card" style="width: 160px;">
+  <img src="image/profil.png" width="159" height="170" alt="">
+  <div class="card-footer"><b>STMIK AKBA Makassar</b></div>
+  </div>
+
+</div>
+</div>      
+
+</div>
+</div> <!--Container Fluid-->
+<br>
+
+<div class="container-fluid">
+<div class="card shadow" data-aos="zoom-in">
+  <h4 class="card-header" id="sertifikat">Sertifikat</h4>
+  <div class="card-body">
+  <div class="table-responsive">
+   <div class="container sertifikat" >
+  <div class="grid-image">
+        
+  <img id="img1" src="image/1.png" alt="Sertifikat HTML Dan CSS" style="width: 300px;">
+  <img id="img2" src="image/2.png" alt="Sertifikat PHP" style="width: 300px;">
+  <img id="img3" src="image/3.png" alt="Sertifikat SQL" style="width: 300px;">
+
+</div>
+</div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img1 = document.getElementById("img1");
+var img2 = document.getElementById("img2");
+var img3 = document.getElementById("img3");
+
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img1.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+img2.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+img3.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+</div>
+</div>
+</div> <!--Container Fluid-->
+<br>
+
+<div class="container-fluid">
+<div class="card shadow" data-aos="zoom-in">
+  <h4 class="card-header" id="project">My Project</h4>
+  <div class="card-body">
+
+<div class="table-responsive">
+  <div class="container sertifikat"> 
+    <div class="grid-container">
+
+    <div class="card" style="width: 351px; margin-top: -15px; margin-bottom: -5px;">
+      <img src="image/profil.png" width="350" height="190" alt="">
+      <div class="card-footer"><b>Apk Web Sekolah</b></div>
+      </div>
+    
+    <div class="card" style="width: 351px; margin-top: -15px; margin-bottom: -5px;">
+      <img src="image/profil.png" width="350" height="190" alt="">
+      <div class="card-footer"><b>Apk Web Toko Online</b></div>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+  </div>
+</div>
+
+</div> <!--Container Fluid-->
+
+<div class="col-50">
+  <div class="container" align="center">
+  <br>
+      <h4>Hubungi Saya Di:</h4>
+      <br>
+          <p>Telp/WA : -------------<br>
+          Facebook : ------------<br>
+          Email: -----------------<br>
+          Instagram : -----------</p>
+
+          <p>Created by <u>Nurfaizal</u></p>
+
+</div>
+</div>
+</body>
+</html>

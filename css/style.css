@@ -1,0 +1,58 @@
+.header {
+    background-color: #f2f2f2;
+    height: 300px;
+}
+
+.image {
+    border-radius: 100%;
+    margin-top: 20px; 
+    
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 10px;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.grid-image {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 15px;
+    padding: 10px;   
+}
+
+@media screen and (max-width: 600px) {
+.image {
+    border-radius: 100%;
+    margin-top: 20px;
+    height: 100px;
+    width: 100px;
+} 
+
+.header {
+    background-color: #f2f2f2;
+    height: 235px;
+}
+
+.sertifikat {
+    margin-left: -25px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.profil {
+    font-size: 24px;
+}
+
+}
