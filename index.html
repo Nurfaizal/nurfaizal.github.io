@@ -4,51 +4,133 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Saya</title>
+    <title>Nurfaizal | Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <style>
+         :root {
+            --primary-color: #0d6efd;
+            --accent-color: #00d2ff;
+            --dark-bg: #0f172a;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+        }
+        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fff;
+            color: #333;
+            overflow-x: hidden;
         }
-
+        /* Hero Section Customization */
+        
         .hero {
-            background-color: #f8f9fa;
-            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%);
         }
-
+        
+        .hero-img-container-lg {
+            position: relative;
+            display: inline-block;
+        }
+        
         .hero img {
-            max-width: 250px;
-            height: auto;
+            /* Default = Mobile & Tablet */
+            width: 280px;
+            height: 280px;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            animation: floating 3s ease-in-out infinite;
         }
-
-        .hero h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-        }
-
-        .hero p.lead {
-            font-size: 1.1rem;
-        }
-
-        @media (min-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero p.lead {
-                font-size: 1.25rem;
+        
+        @media (min-width: 992px) {
+            /* Desktop (>= 992px) */
+            .hero img {
+                width: 380px;
+                height: 380px;
             }
         }
-
+        
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        /* Navbar Glassmorphism */
+        
+        .navbar {
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.8) !important;
+            transition: all 0.3s;
+        }
+        /* Card Modernization */
+        
         .card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-
+        
         .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            transition: all 0.3s;
+            filter: grayscale(20%);
+        }
+        
+        .skill-icon:hover {
+            transform: scale(1.2) rotate(5deg);
+            filter: grayscale(0%);
+        }
+        /* Timeline Style for Experience */
+        
+        .exp-card {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .btn-primary {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            border: none;
+            box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+        }
+        
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     </style>
 </head>
@@ -56,14 +138,15 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar bg-dark navbar-expand-lg navbar-light bg-light shadow-sm sticky-top" data-bs-theme="dark">
-        <div class="container">
-            <a class="navbar-brand" href="#"><b>Nurfaizal</b></a>
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
+        <div class="container-lg">
+            <a class="navbar-brand fw-bold" href="#">NUR<span class="text-info">FAIZAL</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skill</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Pengalaman</a></li>
@@ -75,89 +158,113 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero bg-dark text-white" id="home">
-        <div class="container">
+    <section class="hero text-white" id="home">
+        <div class="container-lg">
             <div class="row align-items-center">
-                <div class="col-md-6 text-center" data-aos="fade-right">
-                    <img src="image/foto.png" alt="Foto Profil"
-                        class="img-fluid rounded-circle shadow">
+                <div class="col-md-6 text-center mb-5 mb-md-0" data-aos="fade-up">
+                    <div class="hero-img-container-lg">
+                        <img src="image/foto.png" alt="Nurfaizal" class="img-fluid rounded-circle shadow-lg">
+                    </div>
                 </div>
-                <div class="col-md-6 text-center text-md-start mt-4 mt-md-0" data-aos="fade-left">
-                    <h1>Halo, Saya Nurfaizal</h1>
-                    <p class="lead" id="typing"></p>
-                    <!-- Tombol Download CV -->
-                    <a href="path/to/your/cv.pdf" class="btn btn-light mt-3" download>Download CV</a>
+                <div class="col-md-6 text-center text-md-start" data-aos="fade-down">
+                    <h5 class="text-info fw-bold mb-3">Selamat Datang</h5>
+                    <h1 class="display-4 fw-bold mb-3">Saya Nurfaizal</h1>
+                    <h2 class="h3 mb-4"><span id="typing" class="text-info"></span></h2>
+                    <p class="lead opacity-75 mb-4">Fokus dalam membangun sistem backend yang skalabel dan pengalaman pengguna yang intuitif.</p>
+                    <!-- <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+                        <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
+                        <a href="#contact" class="btn btn-outline-light rounded-pill px-4">Kontak Saya</a>
+                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-
     <!-- About Section -->
-    <section id="about" class="py-5" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mt-4 mb-4">Tentang Saya</h2>
-            <p class="text-center">Saya adalah pengembang web dengan pengalaman di berbagai proyek frontend dan backend.
-                Passion saya adalah menciptakan solusi digital yang efektif dan estetis.</p>
+    <section id="about" class="py-5 mt-5">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Tentang Saya</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center" data-aos="fade-up">
+                    <p class="lead text-secondary">
+                        Seorang <strong>Backend Developer</strong> yang antusias dalam memecahkan masalah kompleks melalui kode. Dengan pengalaman di industri pendidikan dan freelance, saya telah mengasah kemampuan dalam menggunakan Laravel.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mt-4 mb-4">Keahlian Saya</h2>
-            <div class="row text-center">
-                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="100">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="60"
-                        alt="HTML5" />
-                    <p class="mt-2">HTML5</p>
+    <section id="skills" class="py-5 bg-light">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Tech Stack</h2>
+            <div class="row g-4 text-center justify-content-center">
+                <!-- Skill items with hover effects -->
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" alt="HTML5" />
+                        <h6 class="mt-3 mb-0">HTML5</h6>
+                    </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="200">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="60"
-                        alt="CSS3" />
-                    <p class="mt-2">CSS3</p>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="100">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" width="50" alt="CSS3" />
+                        <h6 class="mt-3 mb-0">CSS3</h6>
+                    </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="300">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-                        width="60" alt="Bootstrap" />
-                    <p class="mt-2">Bootstrap</p>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="200">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg" width="50" alt="Bootstrap" />
+                        <h6 class="mt-3 mb-0">Bootstrap</h6>
+                    </div>
                 </div>
-                <div class="col-md-3 col-6 mb-4" data-aos="zoom-in" data-aos-delay="400">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
-                        width="60" alt="Laravel" />
-                    <p class="mt-2">Laravel</p>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="300">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="50" alt="Tailwind" />
+                        <h6 class="mt-3 mb-0">Tailwind</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="400">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" width="50" alt="Laravel" />
+                        <h6 class="mt-3 mb-0">Laravel</h6>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left" data-aos-delay="500">
+                    <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg" width="50" alt="MySQL" />
+                        <h6 class="mt-3 mb-0">MySQL</h6>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-5 bg-white" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mt-4 mb-4">Pengalaman Kerja</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4" data-aos="fade-up">
-                    <div class="p-4 bg-white rounded shadow-sm h-100">
-                        <h5 class="mb-1">Web Developer - PT Digital Solusi</h5>
-                        <small class="text-muted">Jan 2022 - Sekarang</small>
-                        <p class="mt-2 mb-0">Mengerjakan proyek berbasis Laravel, mengembangkan sistem informasi
-                            internal perusahaan, dan melakukan integrasi API.</p>
+    <section id="experience" class="py-5">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Pengalaman Kerja</h2>
+            <div class="row g-4 mt-2">
+                <div class="col-md-6" data-aos="fade-down">
+                    <div class="p-4 bg-white rounded shadow-sm h-100 exp-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Programmer</h5>
+                            <span class="badge bg-primary rounded-pill">Full-time</span>
+                        </div>
+                        <p class="text-primary fw-600 mb-1">Sekolah Islam Al-Azhar Cairo SulSel</p>
+                        <small class="text-muted d-block mb-3"><i class="bi bi-calendar3 me-2"></i>Januari 2025 - Desember 2025</small>
+                        <p class="mb-0 text-secondary">Optimasi sistem internal menggunakan Laravel dan pengelolaan database untuk efisiensi administrasi sekolah.</p>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4" data-aos="fade-down">
-                    <div class="p-4 bg-white rounded shadow-sm h-100">
-                        <h5 class="mb-1">Freelance Web Designer</h5>
-                        <small class="text-muted">2020 - 2021</small>
-                        <p class="mt-2 mb-0">Mendesain dan mengembangkan berbagai website landing page dan toko online
-                            untuk UMKM menggunakan Bootstrap & WordPress.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4" data-aos="fade-up">
-                    <div class="p-4 bg-white rounded shadow-sm h-100">
-                        <h5 class="mb-1">Data Entry Specialist - Remote</h5>
-                        <small class="text-muted">2019 - 2020</small>
-                        <p class="mt-2 mb-0">Melakukan input dan validasi data untuk perusahaan internasional
-                            menggunakan Google Sheets dan Excel dengan akurasi tinggi.</p>
+                <div class="col-md-6" data-aos="fade-up">
+                    <div class="p-4 bg-white rounded shadow-sm h-100 exp-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Freelance Programmer</h5>
+                            <span class="badge bg-success rounded-pill">Active</span>
+                        </div>
+                        <p class="text-primary fw-600 mb-1">Self-Employed</p>
+                        <small class="text-muted d-block mb-3"><i class="bi bi-calendar3 me-2"></i>Januari 2026 - Sekarang</small>
+                        <p class="mb-0 text-secondary">Membantu UMKM melakukan digitalisasi melalui pembuatan landing page yang responsif.</p>
                     </div>
                 </div>
             </div>
@@ -165,70 +272,104 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="portfolio py-5 bg-light" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mt-4 mb-4">Portofolio</h2>
+    <section id="portfolio" class="py-5 bg-light">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Proyek Terbaru</h2>
             <div class="row g-4">
-                <div class="col-md-4" data-aos="zoom-in">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/350x200" alt="Proyek 1" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyek 1</h5>
-                            <p class="card-text">Deskripsi singkat proyek pertama Anda.</p>
+                <!-- Proyek 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="image/pro-1.png" class="card-img-top" alt="Project 1">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Web Profil Sekolah AZCA</h5>
+                            <p class="text-secondary small">Website resmi sekolah yang digunakan untuk memperkenalkan profil, visi misi, program unggulan, serta berbagai aktivitas kepada publik.</p>
+                            <a href="https://azca.sch.id/" class="btn btn-sm btn-outline-primary rounded-pill">Lihat</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/350x200" alt="Proyek 2" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyek 2</h5>
-                            <p class="card-text">Deskripsi singkat proyek kedua Anda.</p>
+
+                <!-- Proyek 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="image/pro-2.png" class="card-img-top" alt="Project 2">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Web SPMB AZCA</h5>
+                            <p class="text-secondary small">Aplikasi berbasis web untuk mengelola proses penerimaan siswa baru mulai dari registrasi, verifikasi data, hingga pengumuman hasil seleksi.</p>
+                            <a href="https://spmb.azca.sch.id/" class="btn btn-sm btn-outline-primary rounded-pill">Lihat</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/350x200" alt="Proyek 3" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Proyek 3</h5>
-                            <p class="card-text">Deskripsi singkat proyek ketiga Anda.</p>
+
+                <!-- Proyek 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="position-relative overflow-hidden">
+                            <img src="image/pro-3.png" class="card-img-top" alt="Project 3">
+                        </div>
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold">Web Wakaf MAQ</h5>
+                            <p class="text-secondary small">Aplikasi berbasis web yang membantu proses pengelolaan wakaf mulai dari donasi, monitoring, hingga laporan penyaluran.</p>
+                            <a href="https://wakafmaq.my.id/" class="btn btn-sm btn-outline-primary rounded-pill">Lihat</a>
                         </div>
                     </div>
                 </div>
+                <!-- Tambahkan proyek lainnya dengan struktur yang sama -->
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5" data-aos="fade-up">
-        <div class="container">
-            <h2 class="text-center mb-4">Kontak Saya</h2>
+    <section id="contact" class="py-5">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Mari Berdiskusi</h2>
             <div class="row justify-content-center">
-                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Nama</label>
-                            <input type="text" class="form-control" id="name" placeholder="Nama Anda">
+                <div class="col-md-10">
+                    <div class="card border-0 shadow-lg p-2 p-md-5">
+                        <div class="row g-0">
+                            <div class="col-md-5 bg-dark text-white p-4 rounded-4 d-flex flex-column justify-content-center">
+                                <h4>Informasi Kontak</h4>
+                                <p class="opacity-75">Isi formulir atau hubungi saya melalui platform berikut:</p>
+                                <div class="mt-4">
+                                    <p><i class="bi bi-geo-alt me-3 text-info"></i> Maros, Indonesia</p>
+                                    <p><i class="bi bi-envelope me-3 text-info"></i> nurfaizalwork@gmail.com</p>
+                                    <p><i class="bi bi-whatsapp me-3 text-info"></i> 081-523-777-644</p>
+                                </div>
+                            </div>
+                            <div class="col-md-7 p-4">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control form-control-lg border-0 bg-light" placeholder="Nama Lengkap">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control form-control-lg border-0 bg-light" placeholder="Alamat Email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control form-control-lg border-0 bg-light" rows="4" placeholder="Pesan Anda"></textarea>
+                                    </div>
+                                    <button class="btn btn-primary w-100 btn-lg shadow">Kirim Pesan Sekarang</button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Email Anda">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Pesan</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Pesan Anda"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Kirim</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3" data-aos="fade-up">
-        <p class="mb-0">© 2025 Nurfaizal. Dibuat dengan Bootstrap.</p>
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container-lg">
+            <div class="mb-4">
+                <a href="#" class="text-white mx-2 h4"><i class="bi bi-github"></i></a>
+                <a href="#" class="text-white mx-2 h4"><i class="bi bi-linkedin"></i></a>
+                <a href="#" class="text-white mx-2 h4"><i class="bi bi-instagram"></i></a>
+            </div>
+            <p class="mb-0 opacity-50">© 2026 Nurfaizal. Didesain dengan penuh ❤️ dan Bootstrap 5.</p>
+        </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -236,6 +377,7 @@
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 
     <script>
+        // Typewriter Effect
         const app = document.getElementById('typing');
         const typewriter = new Typewriter(app, {
             loop: true,
@@ -243,25 +385,30 @@
         });
 
         typewriter
-            .typeString('Programmer')
+            .typeString('Laravel Enthusiast')
             .pauseFor(1500)
             .deleteAll()
-            .typeString('Data Entry Specialist')
+            .typeString('Back-End Developer')
             .pauseFor(1500)
-            .deleteAll()
             .start();
 
+        // Initialize AOS
         AOS.init({
             duration: 1000,
-            once: true
+            once: true,
+            offset: 100
         });
 
-        window.onload = function () {
-            // Menggulirkan halaman ke posisi paling atas saat halaman dimuat ulang
-            window.scrollTo(0, 0);
-        };
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('py-2', 'shadow');
+            } else {
+                nav.classList.remove('py-2', 'shadow');
+            }
+        });
     </script>
-
 </body>
 
 </html>
