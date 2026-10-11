@@ -46,6 +46,7 @@
             height: 280px;
             border: 8px solid rgba(255, 255, 255, 0.1);
             animation: floating 3s ease-in-out infinite;
+            object-fit: cover;
         }
         
         @media (min-width: 992px) {
@@ -132,6 +133,38 @@
             left: 50%;
             transform: translateX(-50%);
         }
+
+        /* Certificate Styles */
+        .cert-card {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .cert-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+        }
+        
+        .cert-card img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .cert-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(13, 110, 253, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-card:hover .cert-overlay {
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -151,6 +184,8 @@
                     <li class="nav-item"><a class="nav-link" href="#skills">Skill</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Pengalaman</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Portofolio</a></li>
+                    <!-- Tambahan Menu Sertifikat -->
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Sertifikat</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
                 </ul>
             </div>
@@ -159,6 +194,7 @@
 
     <!-- Hero Section -->
     <section class="hero text-white" id="home">
+        <!-- Kode Hero Tetap Sama -->
         <div class="container-lg">
             <div class="row align-items-center">
                 <div class="col-md-6 text-center mb-5 mb-md-0" data-aos="fade-up">
@@ -171,10 +207,6 @@
                     <h1 class="display-4 fw-bold mb-3">Saya Nurfaizal</h1>
                     <h2 class="h3 mb-4"><span id="typing" class="text-info"></span></h2>
                     <p class="lead opacity-75 mb-4">Fokus dalam membangun sistem backend yang skalabel dan pengalaman pengguna yang intuitif.</p>
-                    <!-- <div class="d-flex gap-3 justify-content-center justify-content-md-start">
-                        <a href="#portfolio" class="btn btn-primary">Lihat Karya</a>
-                        <a href="#contact" class="btn btn-outline-light rounded-pill px-4">Kontak Saya</a>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -194,12 +226,12 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section (Tetap Sama) -->
     <section id="skills" class="py-5 bg-light">
+        <!-- Konten Skill Tetap Sama -->
         <div class="container-lg">
             <h2 class="text-center section-title" data-aos="fade-up">Tech Stack</h2>
             <div class="row g-4 text-center justify-content-center">
-                <!-- Skill items with hover effects -->
                 <div class="col-lg-2 col-md-4 col-6" data-aos="flip-left">
                     <div class="p-4 bg-white rounded-4 shadow-sm skill-icon">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" width="50" alt="HTML5" />
@@ -240,12 +272,23 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience Section (Tetap Sama) -->
     <section id="experience" class="py-5">
         <div class="container-lg">
             <h2 class="text-center section-title" data-aos="fade-up">Pengalaman Kerja</h2>
             <div class="row g-4 mt-2">
                 <div class="col-md-6" data-aos="fade-down">
+                    <div class="p-4 bg-white rounded shadow-sm h-100 exp-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="fw-bold mb-0">Staff Produksi</h5>
+                            <span class="badge bg-primary rounded-pill">Full-time</span>
+                        </div>
+                        <p class="text-primary fw-600 mb-1">PT. Charoen Pokphand (Cabang Maros)</p>
+                        <small class="text-muted d-block mb-3"><i class="bi bi-calendar3 me-2"></i>Mei 2026 - Sekarang</small>
+                        <p class="mb-0 text-secondary">Melakukan penimbangan komposisi bahan baku pakan ayam dengan tingkat akurasi tinggi, sesuai dengan standar formulasi (SOP) perusahaan untuk menjaga konsistensi kualitas nutrisi produk.</p>
+                    </div>
+                </div>
+                <div class="col-md-6" data-aos="fade-up">
                     <div class="p-4 bg-white rounded shadow-sm h-100 exp-card">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <h5 class="fw-bold mb-0">Programmer</h5>
@@ -256,27 +299,15 @@
                         <p class="mb-0 text-secondary">Optimasi sistem internal menggunakan Laravel dan pengelolaan database untuk efisiensi administrasi sekolah.</p>
                     </div>
                 </div>
-                <div class="col-md-6" data-aos="fade-up">
-                    <div class="p-4 bg-white rounded shadow-sm h-100 exp-card">
-                        <div class="d-flex justify-content-between align-items-center mb-2">
-                            <h5 class="fw-bold mb-0">Freelance Programmer</h5>
-                            <span class="badge bg-success rounded-pill">Active</span>
-                        </div>
-                        <p class="text-primary fw-600 mb-1">Self-Employed</p>
-                        <small class="text-muted d-block mb-3"><i class="bi bi-calendar3 me-2"></i>Januari 2026 - Sekarang</small>
-                        <p class="mb-0 text-secondary">Membantu UMKM melakukan digitalisasi melalui pembuatan landing page yang responsif.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- Portfolio Section (Tetap Sama) -->
     <section id="portfolio" class="py-5 bg-light">
         <div class="container-lg">
-            <h2 class="text-center section-title" data-aos="fade-up">Proyek Terbaru</h2>
+            <h2 class="text-center section-title" data-aos="fade-up">Proyek</h2>
             <div class="row g-4">
-                <!-- Proyek 1 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="position-relative overflow-hidden">
@@ -290,7 +321,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 2 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="position-relative overflow-hidden">
@@ -304,7 +334,6 @@
                     </div>
                 </div>
 
-                <!-- Proyek 3 -->
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card h-100">
                         <div class="position-relative overflow-hidden">
@@ -317,13 +346,96 @@
                         </div>
                     </div>
                 </div>
-                <!-- Tambahkan proyek lainnya dengan struktur yang sama -->
+
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+               <div class="card bg-white rounded-4 shadow-sm position-relative overflow-hidden cert-card" 
+                         onclick="showCertModal('image/pizza_sales.png', 'Pizza Sales  Dashboard')">
+                        <img src="image/pizza_sales.png" alt="Pizza Sales  Dashboard">
+                        <div class="cert-overlay">
+                            <i class="bi bi-zoom-in text-white fs-1"></i>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-3 fw-bold">Pizza Sales  Dashboard</h6>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <!-- NEW SECTION: Sertifikat -->
+    <section id="certificates" class="py-5">
+        <div class="container-lg">
+            <h2 class="text-center section-title" data-aos="fade-up">Sertifikat</h2>
+            <p class="text-center text-secondary mb-5" data-aos="fade-up">Pencapaian dan sertifikasi yang telah saya raih.</p>
+            
+            <div class="row g-4">
+                <!-- Sertifikat 1 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card bg-white rounded-4 shadow-sm position-relative overflow-hidden cert-card" 
+                         onclick="showCertModal('image/st-1.jpg', 'Sertifikat Microsoft Excel Basic')">
+                        <img src="image/st-1.jpg" alt="Sertifikat 1">
+                        <div class="cert-overlay">
+                            <i class="bi bi-zoom-in text-white fs-1"></i>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-3 fw-bold">Microsoft Excel Basic</h6>
+                </div>
+
+                <!-- Sertifikat 2 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card bg-white rounded-4 shadow-sm position-relative overflow-hidden cert-card" 
+                         onclick="showCertModal('image/st-2.jpg', 'Sertifikat Microsoft Excel Intermediate')">
+                        <img src="image/st-2.jpg" alt="Sertifikat 2">
+                        <div class="cert-overlay">
+                            <i class="bi bi-zoom-in text-white fs-1"></i>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-3 fw-bold">Microsoft Excel Intermediate</h6>
+                </div>
+
+                <!-- Sertifikat 3 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card bg-white rounded-4 shadow-sm position-relative overflow-hidden cert-card" 
+                         onclick="showCertModal('image/st-3.jpg', 'Sertifikat Microsoft Excel Advanced')">
+                        <img src="image/st-3.jpg" alt="Sertifikat 3">
+                        <div class="cert-overlay">
+                            <i class="bi bi-zoom-in text-white fs-1"></i>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-3 fw-bold">Microsoft Excel Advanced</h6>
+                </div>
+
+                <!-- Sertifikat 4 -->
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card bg-white rounded-4 shadow-sm position-relative overflow-hidden cert-card" 
+                         onclick="showCertModal('image/st-4.png', 'Sertifikat Dasar-dasar administrasi perkantoran')">
+                        <img src="image/st-4.png" alt="Sertifikat 4">
+                        <div class="cert-overlay">
+                            <i class="bi bi-zoom-in text-white fs-1"></i>
+                        </div>
+                    </div>
+                    <h6 class="text-center mt-3 fw-bold">Dasar-dasar administrasi perkantoran</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Lightbox Sertifikat -->
+    <div class="modal fade" id="certModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-header border-0 pb-0 justify-content-end">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="filter: invert(1);"></button>
+                </div>
+                <div class="modal-body text-center pt-0">
+                    <img src="" id="fullCertImage" class="img-fluid rounded shadow-lg" alt="Sertifikat Lengkap">
+                    <h5 id="certTitle" class="text-white mt-3 fw-bold"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section (Tetap Sama) -->
+    <section id="contact" class="py-5 bg-light">
         <div class="container-lg">
             <h2 class="text-center section-title" data-aos="fade-up">Mari Berdiskusi</h2>
             <div class="row justify-content-center">
@@ -368,7 +480,7 @@
                 <a href="#" class="text-white mx-2 h4"><i class="bi bi-linkedin"></i></a>
                 <a href="#" class="text-white mx-2 h4"><i class="bi bi-instagram"></i></a>
             </div>
-            <p class="mb-0 opacity-50">© 2026 Nurfaizal. Didesain dengan penuh ❤️ dan Bootstrap 5.</p>
+            <p class="mb-0 opacity-50">© 2026 Nurfaizal.</p>
         </div>
     </footer>
 
@@ -408,6 +520,17 @@
                 nav.classList.remove('py-2', 'shadow');
             }
         });
+
+        // Script untuk Fitur Lightbox Sertifikat
+        function showCertModal(imageSrc, titleText) {
+            // Ubah sumber gambar dan judul pada modal
+            document.getElementById('fullCertImage').src = imageSrc;
+            document.getElementById('certTitle').innerText = titleText;
+            
+            // Panggil dan tampilkan modal bootstrap
+            var certModal = new bootstrap.Modal(document.getElementById('certModal'));
+            certModal.show();
+        }
     </script>
 </body>
 
